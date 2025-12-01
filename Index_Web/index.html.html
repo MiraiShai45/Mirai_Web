@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Index_Mirai</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/responsive.css" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/js.js"></script>
+</head>
+<body>
+    <header class="top-header"></header>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html.html">Home</a></li>
+            <li><a href="galery/galeria.html.html">Gallery</a></li>
+            <li><a href="games/ping-pong.html">PING-PONG</a></li>
+            <li><a href="shop/shop.html.html">Shop</a></li>
+            <li><a href="about_me/aboutme.html.html">About Me</a></li>
+            <li><a href="form/formulario.html.html">Formulario</a></li>
+        </ul>
+    </nav>
+    <a id="pull" href="#"><img src="img/nav-icon.png" alt="Menu"></a>
+
+    <hr>
+    <hr>
+
+    <section class="hero-section">
+        <canvas id="particleCanvas"></canvas>
+        <div class="hero-slider">
+            <div class="hero-slide active">
+                <div class="hero-content">
+                    <h1>Welcome to <span class="highlight">InuMorph's</span></h1>
+                    <h1>Playground</h1>
+                    <p>Discover animations, designs, 3D models, and creative projects crafted with passion and dedication</p>
+                    <a href="galery/galeria.html.html" class="hero-btn">Explore Gallery</a>
+                </div>
+            </div>
+            <div class="hero-slide">
+                <div class="hero-content">
+                    <h1>Meet <span class="highlight">Creative</span></h1>
+                    <h1>Excellence</h1>
+                    <p>From concept to creation - see how ideas transform into stunning visual experiences</p>
+                    <a href="shop/shop.html.html" class="hero-btn">Browse Shop</a>
+                </div>
+            </div>
+            <div class="hero-slide">
+                <div class="hero-content">
+                    <h1>Commission Your <span class="highlight">Vision</span></h1>
+                    <h1>Now</h1>
+                    <p>Let's bring your imagination to life with professional creative services</p>
+                    <a href="form/formulario.html.html" class="hero-btn">Request Commission</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-nav">
+            <div class="hero-arrow" onclick="prevSlide()">‹</div>
+            <div class="hero-arrow" onclick="nextSlide()">›</div>
+        </div>
+    </section>
+
+    <section class="categories-section">
+        <div class="categories-container">
+            <div class="categories-heading">
+                <h2>Explore Categories</h2>
+                <strong>Choose what interests you most</strong>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card" onclick="window.location.href='galery/galeria.html.html'">
+                    <div class="category-card-image">
+                        <img src="vid/Alice-ByPeggy.webp" alt="Animations">
+                    </div>
+                    <div class="category-card-content">
+                        <h3>Animations</h3>
+                        <p>2D & 3D digital animations</p>
+                        <a href="galery/galeria.html.html" class="category-link">View More</a>
+                    </div>
+                </div>
+
+                <div class="category-card" onclick="window.location.href='galery/galeria.html.html'">
+                    <div class="category-card-image">
+                        <img src="img/logo.jpg" alt="Designs">
+                    </div>
+                    <div class="category-card-content">
+                        <h3>Graphic Designs</h3>
+                        <p>Modern and creative designs</p>
+                        <a href="galery/galeria.html.html" class="category-link">View More</a>
+                    </div>
+                </div>
+
+                <div class="category-card" onclick="window.location.href='galery/galeria.html.html'">
+                    <div class="category-card-image">
+                        <img src="img/Mesa y Sillas.jpg" alt="3D Models">
+                    </div>
+                    <div class="category-card-content">
+                        <h3>3D Models</h3>
+                        <p>Professional 3D creations</p>
+                        <a href="galery/galeria.html.html" class="category-link">View More</a>
+                    </div>
+                </div>
+
+                <div class="category-card" onclick="window.location.href='games/ping-pong.html'">
+                    <div class="category-card-image">
+                        <img src="img/ping-pong.jpeg" alt="Games">
+                    </div>
+                    <div class="category-card-content">
+                        <h3>Games</h3>
+                        <p>Interactive gaming experiences</p>
+                        <a href="games/ping-pong.html" class="category-link">View More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-section">
+        <div class="featured-container">
+            <div class="featured-heading">
+                <h2>Masterpieces</h2>
+                <strong>Our most beloved and acclaimed creations</strong>
+            </div>
+            <div class="featured-grid">
+                <div class="featured-card">
+                    <div class="featured-image">
+                        <img src="img/Dragon.png" alt="Featured 1">
+                    </div>
+                    <div class="featured-content">
+                        <h3>Dragon Animation</h3>
+                        <p>A stunning 3D dragon animation showcasing advanced modeling and rendering techniques.</p>
+                        <div class="featured-footer">
+                            <span class="featured-rating">⭐ 4.9/5</span>
+                            <a href="galery/galeria.html.html" class="featured-link">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-card">
+                    <div class="featured-image">
+                        <img src="img/logo (2).jpg" alt="Featured 2">
+                    </div>
+                    <div class="featured-content">
+                        <h3>InuMorph Logo</h3>
+                        <p>Professional branding design representing the essence of creativity and innovation.</p>
+                        <div class="featured-footer">
+                            <span class="featured-rating">⭐ 5.0/5</span>
+                            <a href="galery/galeria.html.html" class="featured-link">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-card">
+                    <div class="featured-image">
+                        <img src="img/Limeton.png" alt="Featured 3">
+                    </div>
+                    <div class="featured-content">
+                        <h3>Limeton Character</h3>
+                        <p>An adorable character design perfect for animation and gaming projects.</p>
+                        <div class="featured-footer">
+                            <span class="featured-rating">⭐ 4.8/5</span>
+                            <a href="galery/galeria.html.html" class="featured-link">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-card">
+                    <div class="featured-image">
+                        <img src="img/Logotypo Guitarra.jpg" alt="Featured 4">
+                    </div>
+                    <div class="featured-content">
+                        <h3>Guitar Logo</h3>
+                        <p>Musical branding design combining elegance with artistic expression.</p>
+                        <div class="featured-footer">
+                            <span class="featured-rating">⭐ 4.7/5</span>
+                            <a href="galery/galeria.html.html" class="featured-link">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-card">
+                    <div class="featured-image">
+                        <img src="img/2 - Fotograma.jpg" alt="Featured 5">
+                    </div>
+                    <div class="featured-content">
+                        <h3>Frame Animation</h3>
+                        <p>Dynamic motion graphics capturing the essence of modern animation.</p>
+                        <div class="featured-footer">
+                            <span class="featured-rating">⭐ 4.9/5</span>
+                            <a href="galery/galeria.html.html" class="featured-link">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-card">
+                    <div class="featured-image">
+                        <img src="img/Whisper_Game2.jpg" alt="Featured 6">
+                    </div>
+                    <div class="featured-content">
+                        <h3>Whisper Design</h3>
+                        <p>Mysterious and elegant design perfect for storytelling projects.</p>
+                        <div class="featured-footer">
+                            <span class="featured-rating">⭐ 4.8/5</span>
+                            <a href="galery/galeria.html.html" class="featured-link">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos Section with Title -->
+    <section class="videos-section">
+        <div class="section-header">
+            <h2>Featured Videos</h2>
+            <strong>Watch our latest creative projects in motion</strong>
+        </div>
+        <div class="videos-list">
+            <div class="video-item" onclick="openVideoModal('dQw4w9WgXcQ', 'Alice - By Peggy')">
+                <div class="video-thumbnail">
+                    <img src="vid/Alice-ByPeggy.webp" alt="Alice - By Peggy">
+                    <div class="video-overlay">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <h4>Alice - By Peggy</h4>
+            </div>
+            <div class="video-item" onclick="openVideoModal('dQw4w9WgXcQ', 'Muffin Time')">
+                <div class="video-thumbnail">
+                    <img src="vid/MuffinTime.webp" alt="Muffin Time">
+                    <div class="video-overlay">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <h4>Muffin Time</h4>
+            </div>
+            <div class="video-item" onclick="openVideoModal('dQw4w9WgXcQ', 'Who\'s in the House')">
+                <div class="video-thumbnail">
+                    <img src="vid/Who_sInTheHouse.webp" alt="Who's in the House">
+                    <div class="video-overlay">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <h4>Who's in the House</h4>
+            </div>
+            <div class="video-item" onclick="openVideoModal('dQw4w9WgXcQ', 'Espada Vorpal')">
+                <div class="video-thumbnail">
+                    <img src="vid/EspadaVorpal.webp" alt="Espada Vorpal">
+                    <div class="video-overlay">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <h4>Espada Vorpal</h4>
+            </div>
+            <div class="video-item" onclick="openVideoModal('dQw4w9WgXcQ', 'Eyeless Jack')">
+                <div class="video-thumbnail">
+                    <img src="vid/EyelessJack.webp" alt="Eyeless Jack">
+                    <div class="video-overlay">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <h4>Eyeless Jack</h4>
+            </div>
+            <div class="video-item" onclick="openVideoModal('dQw4w9WgXcQ', 'Mr. Bunny')">
+                <div class="video-thumbnail">
+                    <img src="vid/Mr.Bunny.webp" alt="Mr. Bunny">
+                    <div class="video-overlay">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <h4>Mr. Bunny</h4>
+            </div>
+                <div class="video-item" onclick="openVideoModal('dQw4w9WgXcQ', 'Mr. Bunny')">
+                <div class="video-thumbnail">
+                    <img src="vid/BajarSubir.webp" alt="BajarSubir">
+                    <div class="video-overlay">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <h4>Bajas y Subir Escaleras</h4>
+            </div>
+        </div>
+    </section>
+
+  
+    <div id="videoModal" class="video-modal">
+        <div class="video-modal-content">
+            <span class="close-modal" onclick="closeVideoModal()">&times;</span>
+            <div class="modal-video-container">
+                <iframe id="videoFrame" width="100%" height="500" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <h3 id="videoTitle" style="text-align: center; margin-top: 20px; color: #3E2926;">Video Title</h3>
+        </div>
+    </div>
+
+   
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Start Your Project?</h2>
+            <p>Whether you need animations, designs, 3D models, or custom commissions, we're here to bring your vision to life with quality and creativity.</p>
+            <div class="cta-buttons">
+                <a href="form/formulario.html.html" class="cta-btn">Request Commission</a>
+                <a href="shop/shop.html.html" class="cta-btn">Browse Shop</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[n].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        // Auto slide every 8 seconds
+        setInterval(nextSlide, 8000);
+
+        // Particle animation for hero section
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = canvas.parentElement.offsetWidth;
+        canvas.height = canvas.parentElement.offsetHeight;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 8 + 3;
+                this.speedX = Math.random() * 2 - 1;
+                this.speedY = Math.random() * 2 - 1;
+                this.color = this.getAnimalColor();
+                this.opacity = Math.random() * 0.5 + 0.3;
+            }
+
+            getAnimalColor() {
+                const colors = [
+                    '#8B6F47', // Australian Shepherd brown
+                    '#D4A574', // Tan/cream
+                    '#2C2416', // Dark brown
+                    '#E07A5F', // Coral accent
+                    '#6B8E23', // Olive green (ferret colors)
+                    '#A0826D'  // Taupe
+                ];
+                return colors[Math.floor(Math.random() * colors.length)];
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x < 0) this.x = canvas.width;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.y < 0) this.y = canvas.height;
+                if (this.y > canvas.height) this.y = 0;
+            }
+
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.opacity;
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        const particles = [];
+        for (let i = 0; i < 50; i++) {
+            particles.push(new Particle());
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+
+        animateParticles();
+
+        // Resize canvas on window resize
+        window.addEventListener('resize', () => {
+            canvas.width = canvas.parentElement.offsetWidth;
+            canvas.height = canvas.parentElement.offsetHeight;
+        });
+
+        // Video Modal Functions
+        function openVideoModal(videoId, title) {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('videoFrame');
+            const videoTitle = document.getElementById('videoTitle');
+            
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            videoTitle.textContent = title;
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('videoFrame');
+            
+            iframe.src = '';
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside the content
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('videoModal');
+            if (event.target === modal) {
+                closeVideoModal();
+            }
+        });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <h4>© 2025 InuMorph's Playground. All rights reserved.</h4>
+            <div class="social-links">
+                
+                <a href="https://www.facebook.com" target="_blank" class="social-icon-svg" title="Facebook">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </a>
+                
+                <a href="https://www.twitter.com" target="_blank" class="social-icon-svg" title="Twitter">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.953 4.57a10 10 0 002.856-9.795c-1.737.737-3.67 1.494-5.261 1.917A4.92 4.92 0 0016.88 4.957a4.901 4.901 0 00-8.4 4.488c-4.054-.405-7.859-2.15-10.288-5.144a4.902 4.902 0 001.523 6.573 4.85 4.85 0 01-2.23-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.903 4.903 0 002.224.084 4.908 4.908 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                    </svg>
+                </a>
+                
+                <a href="https://www.instagram.com" target="_blank" class="social-icon-svg" title="Instagram">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+                    </svg>
+                </a>
+                
+                <a href="https://www.youtube.com" target="_blank" class="social-icon-svg" title="YouTube">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

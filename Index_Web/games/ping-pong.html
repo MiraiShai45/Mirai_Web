@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ping Pong Ultimate</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/responsive.css" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/js.js"></script>
+<style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 60px);
+            margin: 0;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Poppins', sans-serif;
+            padding: 20px;
+            padding-top: 80px;
+        }
+
+        .game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .game-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .game-title h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #E07A5F;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin: 0;
+        }
+
+        .game-title p {
+            color: #F6AF95;
+            font-size: 1rem;
+            margin: 5px 0 0 0;
+        }
+
+        #gameControls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        canvas {
+            border: 3px solid #E07A5F;
+            background: #0f1419;
+            box-shadow: 0 0 30px rgba(224, 122, 95, 0.4), 0 8px 32px rgba(0,0,0,0.3);
+            display: block;
+            border-radius: 10px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        #gameControls button {
+            background: linear-gradient(135deg, #E07A5F, #F6AF95);
+            border: none;
+            padding: 12px 24px;
+            cursor: pointer;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 4px 15px rgba(224, 122, 95, 0.3);
+        }
+        
+        #gameControls button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(224, 122, 95, 0.5);
+        }
+
+        #gameControls button:active {
+            transform: translateY(-1px);
+        }
+
+        #stats {
+            position: absolute;
+            top: 80px;
+            right: 20px;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            background: rgba(224, 122, 95, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 2px solid #E07A5F;
+            min-width: 180px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+
+        #stats div {
+            margin: 8px 0;
+            font-size: 14px;
+            color: #FFE9C6;
+        }
+
+        #level-info {
+            font-size: 18px;
+            font-weight: bold;
+            color: #E07A5F;
+        }
+
+        #scores {
+            color: #F6AF95;
+            font-weight: 600;
+        }
+
+        #speed-info {
+            color: #FFE9C6;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+                min-height: auto;
+            }
+
+            .game-title h1 {
+                font-size: 1.8rem;
+            }
+
+            canvas {
+                width: 100%;
+                max-width: 500px;
+            }
+
+            #gameControls {
+                gap: 8px;
+            }
+
+            #gameControls button {
+                padding: 10px 16px;
+                font-size: 0.85rem;
+            }
+
+            #stats {
+                top: auto;
+                right: auto;
+                position: static;
+                margin-top: 20px;
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-header"></header>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="../index.html.html">Home</a></li>
+            <li><a href="../galery/galeria.html.html">Gallery</a></li>
+            <li><a href="ping-pong.html">PING-PONG</a></li>
+            <li><a href="../shop/shop.html.html">Shop</a></li>
+            <li><a href="../about_me/aboutme.html.html">About Me</a></li>
+            <li><a href="../form/formulario.html.html">Formulario</a></li>
+        </ul>
+    </nav>
+    <a id="pull" href="#"><img src="../img/nav-icon.png" alt="Menu"></a>
+
+    <main class="game-container">
+        <div class="game-title">
+            <h1>PING-PONG</h1>
+            <p>Clásico juego de Ping-Pong - ¡Demuestra tus habilidades!</p>
+        </div>
+
+        <div id="stats">
+            <div id="level-info">Nivel: 1</div>
+            <div id="scores">P1: 0 | P2: 0</div>
+            <div id="speed-info">Velocidad: 1x</div>
+        </div>
+
+        <canvas id="pongCanvas" width="800" height="400"></canvas>
+
+        <div id="gameControls">
+            <button onclick="startGame()">Iniciar Juego</button>
+            <button onclick="resetGame()">Reiniciar</button>
+            <button onclick="togglePause()" id="pauseBtn">Pausar</button>
+            <button onclick="nextLevel()">Siguiente Nivel</button>
+        </div>
+    </main>
+
+    <script>
+        const canvas = document.getElementById('pongCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Sistema de niveles dinámico
+        const levelConfigs = {
+            1: { maxScore: 3, baseSpeed: 3, paddleHeight: 100, ballSize: 20, spawns: 0 },
+            2: { maxScore: 4, baseSpeed: 4, paddleHeight: 85, ballSize: 18, spawns: 1 },
+            3: { maxScore: 4, baseSpeed: 5, paddleHeight: 70, ballSize: 16, spawns: 2 },
+            4: { maxScore: 5, baseSpeed: 6, paddleHeight: 60, ballSize: 15, spawns: 3 },
+            5: { maxScore: 5, baseSpeed: 7, paddleHeight: 50, ballSize: 14, spawns: 4 }
+        };
+
+        const paddle = {
+            width: 10,
+            height: 100,
+            player: {
+                y: canvas.height / 2 - 50,
+                score: 0
+            },
+            player2: {
+                y: canvas.height / 2 - 50,
+                score: 0
+            }
+        };
+
+        const game = {
+            started: false,
+            paused: false,
+            level: 1,
+            maxScore: 3,
+            highScore: 0,
+            combo: 0,
+            powerups: [],
+            particles: [],
+            gameState: 'menu', // menu, playing, levelUp, gameOver
+            winner: null
+        };
+
+        const ball = {
+            x: canvas.width / 2,
+            y: canvas.height / 2,
+            radius: 20,  
+            baseSpeed: 3,
+            speed: 3,
+            dx: 3,
+            dy: 3,
+            color: '#0ff',
+            face: {
+                eyes: true,
+                smile: true
+            },
+            image: new Image()
+        };
+
+        function setBallImage(imageUrl) {
+            ball.image.src = imageUrl;
+            ball.image.onload = () => {
+                ball.hasImage = true;
+            };
+        }
+
+        function drawBall() {
+            if (ball.hasImage) {
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+                ctx.closePath();
+                ctx.clip();
+
+                if (ball.dx < 0) {
+                    ctx.scale(-1, 1);
+                    ctx.drawImage(
+                        ball.image, 
+                        -ball.x - ball.radius,
+                        ball.y - ball.radius,
+                        ball.radius * 2,
+                        ball.radius * 2
+                    );
+                } else {
+                    ctx.drawImage(
+                        ball.image, 
+                        ball.x - ball.radius,
+                        ball.y - ball.radius,
+                        ball.radius * 2,
+                        ball.radius * 2
+                    );
+                }
+                ctx.restore();
+            } else {
+                ctx.beginPath();
+                ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+                ctx.fillStyle = ball.color;
+                ctx.fill();
+                ctx.closePath();
+
+                if (ball.face.eyes) {
+                    const eyeX = ball.dx > 0 ? 3 : -3;
+                    ctx.fillStyle = '#000';
+                    ctx.beginPath();
+                    ctx.arc(ball.x + eyeX, ball.y - 3, 2, 0, Math.PI * 2);
+                    ctx.arc(ball.x + eyeX, ball.y + 3, 2, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.closePath();
+                }
+
+                if (ball.face.smile) {
+                    ctx.beginPath();
+                    ctx.arc(ball.x + (ball.dx > 0 ? 2 : -2), ball.y, 5, 
+                            ball.dx > 0 ? 0 : Math.PI, 
+                            ball.dx > 0 ? Math.PI : Math.PI * 2);
+                    ctx.strokeStyle = '#000';
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                    ctx.closePath();
+                }
+            }
+        }
+
+        function drawPaddle() {
+            ctx.fillStyle = '#fff';
+            ctx.fillRect(0, paddle.player.y, paddle.width, paddle.height);
+            ctx.fillRect(canvas.width - paddle.width, paddle.player2.y, paddle.width, paddle.height);
+        }
+
+        function drawScore() {
+            ctx.fillStyle = '#fff';
+            ctx.font = '32px Arial';
+            ctx.fillText(`P1: ${paddle.player.score}`, canvas.width / 4, 50);
+            ctx.fillText(`P2: ${paddle.player2.score}`, 3 * canvas.width / 4, 50);
+        }
+
+        const keys = {
+            W: false,
+            S: false,
+            UP: false,
+            DOWN: false
+        };
+
+        const paddleSpeed = 5;
+
+        function update() {
+            if (!game.started || game.paused || game.gameState !== 'playing') return;
+
+            if (keys.W) paddle.player.y -= paddleSpeed;
+            if (keys.S) paddle.player.y += paddleSpeed;
+            if (keys.UP) paddle.player2.y -= paddleSpeed;
+            if (keys.DOWN) paddle.player2.y += paddleSpeed;
+
+            paddle.player.y = Math.max(0, Math.min(canvas.height - paddle.height, paddle.player.y));
+            paddle.player2.y = Math.max(0, Math.min(canvas.height - paddle.height, paddle.player2.y));
+
+            ball.x += ball.dx;
+            ball.y += ball.dy;
+
+            const maxSpeed = 10 + game.level;
+            ball.speed = Math.min(ball.baseSpeed + (game.level - 1) * 0.5, maxSpeed);
+            ball.dx = (ball.dx > 0 ? 1 : -1) * ball.speed;
+            ball.dy = (ball.dy > 0 ? 1 : -1) * ball.speed;
+
+            if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
+                ball.dy *= -1;
+                // Agrega variación aleatoria en el rebote de la pared
+                const wallBounceVariation = (Math.random() - 0.5) * 2 * game.level;
+                ball.dy += wallBounceVariation;
+                createParticles(ball.x, ball.y, '0, 255, 255');
+            }
+
+            if (ball.x - ball.radius < paddle.width) {
+                if (ball.y > paddle.player.y && ball.y < paddle.player.y + paddle.height) {
+                    ball.dx *= -1;
+                    ball.x = paddle.width + ball.radius;
+                    const hitPos = (ball.y - paddle.player.y) / paddle.height;
+                    // Aumenta la aleatoriedad según el nivel
+                    const randomMultiplier = 1 + (game.level - 1) * 0.3;
+                    const randomFactor = (Math.random() - 0.5) * 4 * randomMultiplier;
+                    ball.dy = (hitPos - 0.5) * 10 + randomFactor + (Math.random() - 0.5) * 6;
+                    ball.dx *= 1 + (Math.random() - 0.5) * (0.3 * randomMultiplier);
+                    createParticles(ball.x, ball.y, '255, 255, 255');
+                    game.combo++;
+                } else if (ball.x < 0) {
+                    paddle.player2.score++;
+                    game.combo = 0;
+                    checkGameOver();
+                    resetBall();
+                }
+            }
+
+            if (ball.x + ball.radius > canvas.width - paddle.width) {
+                if (ball.y > paddle.player2.y && ball.y < paddle.player2.y + paddle.height) {
+                    ball.dx *= -1;
+                    ball.x = canvas.width - paddle.width - ball.radius;
+                    const hitPos = (ball.y - paddle.player2.y) / paddle.height;
+                    // Aumenta la aleatoriedad según el nivel
+                    const randomMultiplier = 1 + (game.level - 1) * 0.3;
+                    const randomFactor = (Math.random() - 0.5) * 4 * randomMultiplier;
+                    ball.dy = (hitPos - 0.5) * 10 + randomFactor + (Math.random() - 0.5) * 6;
+                    ball.dx *= 1 + (Math.random() - 0.5) * (0.3 * randomMultiplier);
+                    createParticles(ball.x, ball.y, '255, 255, 255');
+                    game.combo++;
+                } else if (ball.x > canvas.width) {
+                    paddle.player.score++;
+                    game.combo = 0;
+                    checkGameOver();
+                    resetBall();
+                }
+            }
+
+            const maxVerticalSpeed = 8 + game.level * 0.5;
+            ball.dy = Math.max(Math.min(ball.dy, maxVerticalSpeed), -maxVerticalSpeed);
+        }
+
+        function createParticles(x, y, color) {
+            const particleCount = 5;
+            if (game.particles.length > 30) {
+                game.particles.length = 0;
+            }
+            
+            for (let i = 0; i < particleCount; i++) {
+                game.particles.push({
+                    x: x,
+                    y: y,
+                    dx: (Math.random() - 0.5) * 4, 
+                    dy: (Math.random() - 0.5) * 4, 
+                    radius: Math.random() * 2,      
+                    color: color,
+                    life: 0.8                       
+                });
+            }
+        }
+
+        function updateParticles() {
+            for (let i = game.particles.length - 1; i >= 0; i--) {
+                const p = game.particles[i];
+                p.x += p.dx;
+                p.y += p.dy;
+                p.life -= 0.03; 
+                
+                if (p.life <= 0) {
+                    game.particles.splice(i, 1);
+                    continue;
+                }
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${p.color}, ${p.life})`;
+                ctx.fill();
+                ctx.closePath();
+            }
+        }
+
+        function drawGame() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            const gradient = ctx.createRadialGradient(
+                ball.x, ball.y, 0,
+                ball.x, ball.y, 200
+            );
+            gradient.addColorStop(0, '#00ffff20');
+            gradient.addColorStop(1, '#00000000');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            if (game.gameState === 'menu') {
+                drawStartScreen();
+            } else if (game.gameState === 'playing') {
+                drawBall();
+                drawPaddle();
+                drawScore();
+                drawLevel();
+                updateParticles();
+                update();
+            } else if (game.gameState === 'levelUp') {
+                drawLevelUpScreen();
+            } else if (game.gameState === 'gameOver') {
+                drawGameOverScreen();
+            }
+
+            updateStats();
+            requestAnimationFrame(drawGame);
+        }
+
+        function drawStartScreen() {
+            ctx.fillStyle = '#fff';
+            ctx.font = 'bold 48px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('¡PING PONG!', canvas.width/2, canvas.height/2 - 80);
+            ctx.font = '24px Arial';
+            ctx.fillText('Juego de Niveles Dinámicos', canvas.width/2, canvas.height/2 - 20);
+            ctx.font = '18px Arial';
+            ctx.fillText('Haz clic en "Iniciar Juego" para comenzar', canvas.width/2, canvas.height/2 + 40);
+            ctx.fillStyle = 'rgb(255, 210, 112)';
+            ctx.fillText(`Record: ${game.highScore}`, canvas.width/2, canvas.height/2 + 80);
+        }
+
+        function drawLevel() {
+            ctx.fillStyle = 'rgb(255, 210, 112)';
+            ctx.font = 'bold 24px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText(`NIVEL ${game.level}`, canvas.width/2, 35);
+        }
+
+        function drawLevelUpScreen() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = 'rgb(255, 210, 112)';
+            ctx.font = 'bold 50px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('¡NIVEL COMPLETADO!', canvas.width/2, canvas.height/2 - 80);
+            
+            ctx.fillStyle = '#fff';
+            ctx.font = '28px Arial';
+            ctx.fillText(`Nivel ${game.level} → ${game.level + 1}`, canvas.width/2, canvas.height/2);
+            
+            ctx.fillStyle = 'rgb(248, 178, 219)';
+            ctx.font = '20px Arial';
+            ctx.fillText('Presiona "Siguiente Nivel" para continuar', canvas.width/2, canvas.height/2 + 80);
+        }
+
+        function drawGameOverScreen() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.9)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = 'rgb(255, 0, 119)';
+            ctx.font = 'bold 48px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('¡GAME OVER!', canvas.width/2, canvas.height/2 - 80);
+            
+            ctx.fillStyle = '#fff';
+            ctx.font = '28px Arial';
+            ctx.fillText(`Ganador: ${game.winner}`, canvas.width/2, canvas.height/2);
+            ctx.fillText(`Nivel: ${game.level}`, canvas.width/2, canvas.height/2 + 50);
+            
+            ctx.fillStyle = 'rgb(255, 210, 112)';
+            ctx.font = '20px Arial';
+            ctx.fillText('Presiona "Reiniciar" para jugar nuevamente', canvas.width/2, canvas.height/2 + 100);
+        }
+
+        function checkGameOver() {
+            const config = levelConfigs[game.level] || levelConfigs[5];
+            
+            if (paddle.player.score >= config.maxScore) {
+                game.winner = 'Jugador 1';
+                game.highScore = Math.max(game.highScore, game.level);
+                
+                if (game.level < 5) {
+                    game.gameState = 'levelUp';
+                } else {
+                    game.gameState = 'gameOver';
+                }
+            } else if (paddle.player2.score >= config.maxScore) {
+                game.winner = 'Jugador 2';
+                game.highScore = Math.max(game.highScore, game.level);
+                
+                if (game.level < 5) {
+                    game.gameState = 'levelUp';
+                } else {
+                    game.gameState = 'gameOver';
+                }
+            }
+        }
+
+        function applyLevelConfig() {
+            const config = levelConfigs[game.level] || levelConfigs[5];
+            game.maxScore = config.maxScore;
+            ball.baseSpeed = config.baseSpeed;
+            ball.radius = config.ballSize;
+            paddle.height = config.paddleHeight;
+            paddle.player.y = canvas.height / 2 - paddle.height / 2;
+            paddle.player2.y = canvas.height / 2 - paddle.height / 2;
+        }
+
+        function resetScore() {
+            paddle.player.score = 0;
+            paddle.player2.score = 0;
+        }
+
+        function startGame() {
+            game.started = true;
+            game.gameState = 'playing';
+            game.level = 1;
+            applyLevelConfig();
+            resetScore();
+            resetBall();
+            drawGame();
+        }
+
+        function nextLevel() {
+            if (game.level < 5) {
+                game.level++;
+                applyLevelConfig();
+                resetScore();
+                resetBall();
+                game.gameState = 'playing';
+            } else {
+                game.gameState = 'gameOver';
+            }
+        }
+
+        function resetGame() {
+            game.started = false;
+            game.level = 1;
+            game.combo = 0;
+            game.gameState = 'menu';
+            resetScore();
+            resetBall();
+            game.winner = null;
+            drawGame();
+        }
+
+        function resetBall() {
+            ball.x = canvas.width / 2;
+            ball.y = canvas.height / 2;
+            // Mayor variación en el ángulo inicial según el nivel
+            const angleVariation = (Math.random() - 0.5) * Math.PI * 0.6 * (1 + game.level * 0.2);
+            ball.dx = ball.dx > 0 ? ball.baseSpeed : -ball.baseSpeed;
+            ball.dy = (Math.random() - 0.5) * ball.baseSpeed * 3 + Math.sin(angleVariation) * ball.baseSpeed;
+        }
+
+        document.addEventListener('keydown', (e) => {
+            switch(e.key) {
+                case 'w':
+                case 'W': 
+                    keys.W = true; 
+                    break;
+                case 's':
+                case 'S': 
+                    keys.S = true; 
+                    break;
+                case 'ArrowUp': 
+                    keys.UP = true; 
+                    break;
+                case 'ArrowDown': 
+                    keys.DOWN = true; 
+                    break;
+            }
+        });
+
+        document.addEventListener('keyup', (e) => {
+            switch(e.key) {
+                case 'w':
+                case 'W': 
+                    keys.W = false; 
+                    break;
+                case 's':
+                case 'S': 
+                    keys.S = false; 
+                    break;
+                case 'ArrowUp': 
+                    keys.UP = false; 
+                    break;
+                case 'ArrowDown': 
+                    keys.DOWN = false; 
+                    break;
+            }
+        });
+
+        function togglePause() {
+            if (game.gameState === 'playing') {
+                game.paused = !game.paused;
+                document.getElementById('pauseBtn').textContent = game.paused ? 'Reanudar' : 'Pausar';
+            }
+        }
+
+        function updateStats() {
+            const stats = document.getElementById('stats');
+            const speedMultiplier = (ball.baseSpeed / 3).toFixed(1);
+            stats.innerHTML = `
+                <div id="level-info">Nivel: ${game.level}</div>
+                <div id="scores">P1: ${paddle.player.score} | P2: ${paddle.player2.score}</div>
+                <div id="speed-info">Velocidad: ${speedMultiplier}x</div>
+            `;
+        }
+
+        const ballImages = [
+            '../img/sonic-mania-tails-the-fox.gif'
+        ];
+
+        window.onload = () => {
+            setBallImage(ballImages[0]);
+        };
+
+        const ballImageButton = document.createElement('button');
+        ballImageButton.textContent = 'Cambiar Pelota';
+        let usingDefaultBall = false;
+
+        ballImageButton.onclick = () => {
+            usingDefaultBall = !usingDefaultBall;
+            if (usingDefaultBall) {
+                ball.hasImage = false;
+            } else {
+                setBallImage(ballImages[0]);
+            }
+        };
+        document.getElementById('gameControls').appendChild(ballImageButton);
+
+        drawGame();
+    </script>
+    
+</body>
+</html>
