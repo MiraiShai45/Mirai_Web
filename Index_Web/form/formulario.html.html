@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Index_Mirai</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/responsive.css" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="../js/js.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #FFE9C6 0%, #FFD9A8 100%);
+            font-family: 'Open Sans', sans-serif;
+            color: #3E2926;
+            padding-top: 80px;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .header-title {
+            background: linear-gradient(135deg, #E07A5F 0%, #F6AF95 50%, #FFE9C6 100%);
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 50px;
+            box-shadow: 0 8px 30px rgba(224, 122, 95, 0.2);
+            border-bottom: 5px solid #E07A5F;
+        }
+
+        .header-title h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.15);
+            letter-spacing: 1px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto;
+            padding: 50px;
+            max-width: 700px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border: 2px solid #FFE9C6;
+        }
+
+        .form-group {
+            width: 100%;
+            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            color: #E07A5F;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        form input,
+        form select {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #FFE9C6;
+            border-radius: 15px;
+            font-size: 16px;
+            font-family: 'Open Sans', sans-serif;
+            color: #3E2926;
+            background: #fafafa;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        form input:focus,
+        form select:focus {
+            outline: none;
+            border-color: #E07A5F;
+            background: white;
+            box-shadow: 0 8px 20px rgba(224, 122, 95, 0.2);
+            transform: translateY(-2px);
+        }
+
+        form input::placeholder {
+            color: #bbb;
+        }
+
+        .error {
+            color: #f44336;
+            font-size: 0.9rem;
+            margin-top: 8px;
+            display: block;
+            font-weight: 600;
+            animation: shake 0.3s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        #cost-container {
+            margin-top: 30px;
+            background: linear-gradient(135deg, #ffe0ed 0%, #fcc778 100%);
+            padding: 25px;
+            border-radius: 20px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(224, 122, 95, 0.15);
+            border: 3px solid #E07A5F;
+            transition: all 0.3s ease;
+        }
+
+        #cost-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(224, 122, 95, 0.25);
+        }
+
+        #cost-container h5 {
+            color: #3E2926;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        #cost-display {
+            font-weight: 800;
+            color: #E07A5F;
+            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        form button {
+            background: linear-gradient(135deg, #E07A5F, #F6AF95);
+            color: white;
+            border: none;
+            padding: 18px 60px;
+            font-size: 18px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 8px 20px rgba(224, 122, 95, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        form button h4 {
+            margin: 0;
+        }
+
+        form button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease, height 0.5s ease;
+        }
+
+        form button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        form button:hover {
+            background: linear-gradient(135deg, #F6AF95, #E07A5F);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(224, 122, 95, 0.4);
+        }
+
+        form button:active {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(224, 122, 95, 0.3);
+        }
+
+     
+        .social-icon-svg {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid #E07A5F;
+            color: #E07A5F;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .social-icon-svg:hover {
+            background: linear-gradient(135deg, #E07A5F, #F6AF95);
+            color: white;
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(224, 122, 95, 0.4);
+        }
+
+        .social-icon-svg svg {
+            transition: all 0.3s ease;
+        }
+
+        .footer {
+            background-color: #663445;
+            color: #ffffff;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+            border-top: 3px solid #E07A5F;
+        }
+
+        .footer-content h4 {
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 80px;
+            }
+
+            form {
+                padding: 30px 20px;
+                margin: 20px;
+                border-radius: 20px;
+            }
+
+            .header-title h1 {
+                font-size: 2rem;
+            }
+
+            form label h5 {
+                font-size: 14px;
+            }
+
+            form input,
+            form select {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+
+            form button {
+                padding: 15px 40px;
+                font-size: 16px;
+            }
+
+            #cost-container {
+                padding: 20px;
+            }
+
+            #cost-display {
+                font-size: 2rem;
+            }
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="top-header"></header>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="../index.html.html">Home</a></li>
+            <li><a href="../galery/galeria.html.html">Gallery</a></li>
+            <li><a href="../games/ping-pong.html">PING-PONG</a></li>
+            <li><a href="../shop/shop.html.html">Shop</a></li>
+            <li><a href="../about_me/aboutme.html.html">About Me</a></li>
+            <li><a href="formulario.html.html">Formulario</a></li>
+        </ul>
+    </nav>
+    <a id="pull" href="#"><img src="../img/nav-icon.png" alt="Menu"></a>
+
+    <hr>
+    <hr>
+
+    <div class="header-title">
+    <h1>Commission Request Form</h1>
+</div>
+
+<form id="commissionForm" method="GET" action="" enctype="multipart/form-data" onsubmit="return validateForm()">
+
+    <div class="form-group">
+        <label for="name"><h5>Your Name</h5></label>
+        <input type="text" id="name" name="name" required autofocus placeholder="Enter your full name">
+        <span id="name-error" class="error" aria-live="polite"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="email"><h5>Email Address</h5></label>
+        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+    </div>
+
+    <div class="form-group">
+        <label for="datetime"><h5>Preferred Date & Time</h5></label>
+        <input type="datetime-local" id="datetime" name="datetime">
+    </div>
+
+    <div class="form-group">
+        <label for="numero"><h5>Number of Items</h5></label>
+        <input type="number" id="numero" name="numero" min="1" max="30" placeholder="1">
+    </div>
+
+    <div class="form-group">
+        <label for="telefono"><h5>Phone Number</h5></label>
+        <input type="tel" id="telefono" name="telefono" placeholder="+1234567890" pattern="^\+?[0-9\s\-]{7,15}$" required>
+        <span id="phone-error" class="error" aria-live="polite"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Commission"><h5>Service Type</h5></label>
+        <select id="Commission" name="Commission" required onchange="updateCost()">
+            <option value="">-- Select a service --</option>
+            <option value="Animacion 2D" data-cost="100">2D Animation - $100</option>
+            <option value="Animacion 3D" data-cost="200">3D Animation - $200</option>
+            <option value="Ilustracion Digital" data-cost="50">Digital Illustration - $50</option>
+            <option value="Edicion de Video" data-cost="75">Video Editing - $75</option>
+            <option value="Dibujo Digital" data-cost="40">Digital Drawing - $40</option>
+            <option value="Modelo 2D" data-cost="60">2D Model - $60</option>
+            <option value="Modelo 3D" data-cost="150">3D Model - $150</option>
+            <option value="Guion Visual" data-cost="30">Visual Script - $30</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="especificaciones"><h5>Project Details</h5></label>
+        <input type="text" id="especificaciones" name="especificaciones" required placeholder="Describe your project specifications...">
+    </div>
+
+    <div class="form-group">
+        <label for="archive"><h5>Upload Reference File</h5></label>
+        <input type="file" id="archive" name="archive" accept=".jpg,.png,.pdf,.docx,.zip">
+    </div>
+
+    <div id="cost-container">
+        <h5>Estimated Cost:</h5>
+        <h2 id="cost-display">$0</h2>
+    </div>
+
+    <button type="submit">
+        <h4>Send</h4>
+    </button>
+</form>
+
+        <footer class="footer">
+        <div class="footer-content">
+            <h4 style="color: white; font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 15px;">© 2025 InuMorph's Playground. All rights reserved.</h4>
+            <div class="social-links" style="display: flex; justify-content: center; gap: 25px; flex-wrap: wrap;">
+                
+                <a href="https://www.facebook.com" target="_blank" class="social-icon-svg" title="Facebook">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </a>
+                
+                <a href="https://www.twitter.com" target="_blank" class="social-icon-svg" title="Twitter">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.953 4.57a10 10 0 002.856-9.795c-1.737.737-3.67 1.494-5.261 1.917A4.92 4.92 0 0016.88 4.957a4.901 4.901 0 00-8.4 4.488c-4.054-.405-7.859-2.15-10.288-5.144a4.902 4.902 0 001.523 6.573 4.85 4.85 0 01-2.23-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.903 4.903 0 002.224.084 4.908 4.908 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                    </svg>
+                </a>
+                
+                <a href="https://www.instagram.com" target="_blank" class="social-icon-svg" title="Instagram">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+                    </svg>
+                </a>
+                
+                <a href="https://www.youtube.com" target="_blank" class="social-icon-svg" title="YouTube">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function validateName() {
+            const input = document.getElementById('name');
+            const value = input.value.trim();
+            const error = document.getElementById('name-error');
+            const regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]{3,50}$/;
+
+            if (value.length < 3) {
+                error.textContent = 'El nombre debe tener al menos 3 caracteres.';
+                return false;
+            }
+            if (!regex.test(value)) {
+                error.textContent = 'El nombre sólo puede contener letras y espacios.';
+                return false;
+            }
+
+            error.textContent = '';
+            return true;
+        }
+
+        function validatePhone() {
+            const input = document.getElementById('telefono');
+            const value = input.value.trim();
+            const error = document.getElementById('phone-error');
+            const regex = /^\+?[0-9\s\-]{7,15}$/;
+
+            if (!regex.test(value)) {
+                error.textContent = 'Número inválido. Ej: +1234567890 o 555-1234';
+                return false;
+            }
+            error.textContent = '';
+            return true;
+        }
+
+        function validateForm() {
+            const validName = validateName();
+            const validPhone = validatePhone();
+            if (!validName) {
+                document.getElementById('name').focus();
+            } else if (!validPhone) {
+                document.getElementById('telefono').focus();
+            }
+            return validName && validPhone;
+        }
+
+        // Registrar validación en tiempo real
+        document.getElementById('name').addEventListener('input', validateName);
+        document.getElementById('telefono').addEventListener('input', validatePhone);
+
+        // Si ya existe updateCost en ../js/js.js, se usará; si no, crea una versión simple aquí
+        if (typeof updateCost !== 'function') {
+            function updateCost() {
+                const select = document.getElementById('Commission');
+                const selected = select.options[select.selectedIndex];
+                const cost = selected ? selected.dataset.cost || 0 : 0;
+                document.getElementById('cost-display').textContent = '$' + cost;
+            }
+            // inicializa el costo al cargar
+            updateCost();
+        }
+    </script>
+
+</body>
+</html>
