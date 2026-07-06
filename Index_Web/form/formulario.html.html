@@ -326,7 +326,25 @@
     <h1>Commission Request Form</h1>
 </div>
 
-<form id="commissionForm" method="GET" action="" enctype="multipart/form-data" onsubmit="return validateForm()">
+<?php if (!empty($success)) : ?>
+    <div style="max-width:700px;margin:20px auto 0;padding:15px 20px;border-radius:15px;background:#e8f5e9;color:#2e7d32;font-weight:700;text-align:center;">
+        <?= htmlspecialchars($success) ?>
+    </div>
+<?php endif; ?>
+
+<?php if (!empty($error)) : ?>
+    <div style="max-width:700px;margin:20px auto 0;padding:15px 20px;border-radius:15px;background:#ffebee;color:#c62828;font-weight:700;text-align:center;">
+        <?= htmlspecialchars($error) ?>
+    </div>
+<?php endif; ?>
+
+<?php if (!empty($message)) : ?>
+    <div style="max-width:700px;margin:20px auto 0;padding:15px 20px;border-radius:15px;background:#fff3e0;color:#ef6c00;font-weight:700;text-align:center;">
+        <?= htmlspecialchars($message) ?>
+    </div>
+<?php endif; ?>
+
+<form id="commissionForm" method="POST" action="procesar_formulario.php" enctype="multipart/form-data" onsubmit="return validateForm()">
 
     <div class="form-group">
         <label for="name"><h5>Your Name</h5></label>
